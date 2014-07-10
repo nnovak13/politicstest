@@ -1,0 +1,12 @@
+<%= form_tag search_path do %>
+ <%= select_tag(:state, options_for_select(Legislator.us_states)) %>
+
+<div><%=text_field_tag :name, nil, placeholder: 'Search by last name' %></div>
+
+<div><%= submit_tag 'Submit' %></div>
+ <% end %>
+
+
+
+
+

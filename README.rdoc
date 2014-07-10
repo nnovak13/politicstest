@@ -1,0 +1,20 @@
+OMGPoliticsBRO
+Where all the shits are given
+
+Purpose
+
+To provide greater transparency to Congressional performance. Can be used to provide corraltive, contextual data to supplement and provide further insight into information provided through other media.
+
+Features
+
+Guest users can look up legislator by LAST NAME or STATE through the search bar
+Guest users can then view information regarding to their selected legislator's
+performance in Congress, within the context of their contribution record.
+
+Description
+
+This is the first project designed for the General Assembly Web Development immersive course.
+
+Installation
+
+This app requires API keys from SunlightLabs.com and OpenSecrets.com.
