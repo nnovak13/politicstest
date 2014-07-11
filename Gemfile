@@ -56,9 +56,9 @@ gem 'nytimes-congress'
  gem 'opensecrets'
  gem 'crack'
 
-# gem 'bootstrap-sass'
+ gem 'bootstrap-sass'
 
-# gem 'autoprefixer-rails'
+gem 'autoprefixer-rails'
 
 
 group :development do

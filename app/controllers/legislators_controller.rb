@@ -15,7 +15,15 @@ class LegislatorsController < ActionController::Base
     # create a query hash from the form input
     query = {state: params[:state], name: params[:name]}
 
-    @legislators = Legislator.search_for(query)
+    @legislators = []
+    if !query[:name].empty?
+      legis_found = Legislator.where(lastname: query[:name])
+      @legislators = legis_found unless legis_found.nil?
+    elsif !query[:state].empty?
+      legis_found = Legislator.where(state: query[:state])
+      @legislators = legis_found unless legis_found.nil?
+    end
+
     render :index
   end
 

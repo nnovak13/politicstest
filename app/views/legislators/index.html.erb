@@ -1,14 +1,24 @@
+<h1>Politics</h1>
 
 
 <table>
+
   <% @legislators.each do |legislator|%>
-        <tr class="legislator">
-          <td class="lastname"><%= legislator.lastname %></td>
-          <td class="firstname"><%= legislator.firstname %></td>
-          <td class="title"><%= legislator.title %></td>
-          <td class="party"><%= legislator.party %></td>
-          <td class="state"><%= legislator.state %></td>
-          <td class="state_name"><%= legislator.state_name %></td>
-        <tr>
+      <tr class="legislator">
+        <td class="title"><%= legislator.title %></td>
+        <td class="name"><%= link_to legislator.firstname + " " + legislator.lastname, legislator_path(legislator)%></td>
+        <td class="party"><%= legislator.party %></td>
+        <td class="state"><%= legislator.state %></td>
+        <td class="state_name"><%= legislator.state_name %></td>
+        <td class="bioguide_id"><%= legislator.bioguide_id %></td>
+        <td class="crp_id"><%= legislator.crp_id %></td>
+        <td class="website"><%= legislator.website %></td>
+        <td class="office"><%= legislator.congress_office %></td>
+      </tr>
   <%end%>
 </table>
+
+
+
+
+<!-- link_to bookmark.title, bookmark_path(bookmark) -->

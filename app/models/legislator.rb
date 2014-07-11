@@ -1,32 +1,31 @@
 class Legislator < ActiveRecord::Base
 
-  def self.search_for(query)
-    legislators = []
+  # def self.search_for(query)
+  #   legislators = []
 
-    if !query[:name].empty?
-      # See if we have legis in our DB.
-      legislators << Legislator.find_by_lastname(query[:name])
+  #   if !query[:name].empty?
+  #     # See if we have legis in our DB.
+  #     legislators << Legislator.find_by_lastname(query[:name])
 
-      if legislators.nil?
-        # Didn't have legis with the last name in the DB
-        # So, lets ask the API for legis with that last name
-        legis_from_api = Sunlight::Legislator.all_where(:lastname => query[:name])
+  #     if legislators.nil?
+  #       # Didn't have legis with the last name in the DB
+  #       # So, lets ask the API for legis with that last name
+  #       legis_from_api = Sunlight::Legislator.all_where(:lastname => query[:name])
 
-        # For legis that the API found with that last name
-        legis_from_api.each do |l|
-          # Create a legis in our DB.
-          legislators << Legislator.create!(firstname: l.firstname, lastname: l.lastname, state: l.state)
-        end
-      end
-    elsif !query[:state].empty?
-      Sunlight::Legislator.all_where(:state => query[:state])
-    else
-      # we have a problem
-    end
-    binding.pry
-    legislators
+  #       # For legis that the API found with that last name
+  #       legis_from_api.each do |l|
+  #         # Create a legis in our DB.
+  #         legislators << Legislator.create!(firstname: l.firstname, lastname: l.lastname, state: l.state)
+  #       end
+  #     end
+  #   elsif !query[:state].empty?
+  #     Sunlight::Legislator.all_where(:state => query[:state])
+  #   else
+  #     # we have a problem
+  #   end
 
-  end
+  #   legislators
+  # end
 
 
 
