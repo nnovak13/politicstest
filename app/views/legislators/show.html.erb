@@ -1,6 +1,16 @@
+
+
+
+<%= image_tag "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@legislator.bioguide_id}.jpg" %><br><br>
+
+
+
 Name is <%= @legislator.title + ". " + @legislator.firstname + " " + @legislator.lastname%><br>
 
-Party: "<%= @legislator.party %>"--State: <%= @legislator.state %><br><br>
+Party: "<%= @legislator.party %>"    ---   State: <%= @legislator.state %><br><br>
 
 Website: <%= link_to @legislator.website %><br>
-Address:<%= @legislator.congress_office %>
+Address:  <%= @legislator.congress_office %>
+
+
+

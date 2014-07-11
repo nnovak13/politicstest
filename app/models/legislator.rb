@@ -1,5 +1,5 @@
 class Legislator < ActiveRecord::Base
-
+  has_many :contributions, dependent: :destroy
   # def self.search_for(query)
   #   legislators = []
 

@@ -19,10 +19,8 @@ Legislator.us_states.each do |state_pair|
   end
 end
 
+# Legislator.all.each do |legislator|
 
-#joe = Legislator.new(title: "Senator", firstname:
-#{}"Joey", lastname: "Ramone", state: 'NY', state_name:
-# "New York", party: "D", chamber: "House",
-#bioguide_id: "N00013", crp_id: "Z007", phone_number: "774-867-5309",
-# congress_office: "Dude, like, around the corner",
-#website: "http://en.wikipedia.org/wiki/Ramones" )
+
+
+  # create contribtuion model, and assign to whom you're iterating over
