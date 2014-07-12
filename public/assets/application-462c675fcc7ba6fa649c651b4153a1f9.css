@@ -11,11 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
- *= require foundation_and_overrides
  *= require_self
- */
+ *= require foundation
+ *= require foundation_and_overrides
 
 
-body {
-  background-color: red;
-}

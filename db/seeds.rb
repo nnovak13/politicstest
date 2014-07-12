@@ -19,8 +19,10 @@ Legislator.us_states.each do |state_pair|
   end
 end
 
-# Legislator.all.each do |legislator|
+# Legislator.all.each do |contributions|
 
+#   contributions.industries({:cid => CID})["response"]
+# all_indus_contris = OpenSecrets::Legislator.all_where(:state => state_abbrev)
+#
 
-
-  # create contribtuion model, and assign to whom you're iterating over
+   # create contribtuion model, and assign to whom you're iterating over

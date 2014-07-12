@@ -1,4 +1,4 @@
 require 'rubygems'
-  require 'sunlight'
+require 'sunlight'
 
 Sunlight::Base.api_key = (ENV['SUNLIGHTCONGRESS_TOKEN'])

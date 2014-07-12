@@ -19,6 +19,8 @@ class LegislatorsController < ActionController::Base
     if !query[:name].empty?
       legis_found = Legislator.where(lastname: query[:name])
       @legislators = legis_found unless legis_found.nil?
+
+
     elsif !query[:state].empty?
       legis_found = Legislator.where(state: query[:state])
       @legislators = legis_found unless legis_found.nil?

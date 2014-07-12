@@ -11,10 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711191422) do
+ActiveRecord::Schema.define(version: 20140712173046) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "contributions", force: true do |t|
-    t.string "legislator_id"
     t.string "cid"
     t.string "firstlast"
     t.string "state"
@@ -30,21 +32,20 @@ ActiveRecord::Schema.define(version: 20140711191422) do
     t.string "indivs"
   end
 
-  add_index "contributions", ["legislator_id"], name: "index_contributions_on_legislator_id"
-
   create_table "legislators", force: true do |t|
-    t.string "title"
-    t.string "firstname"
-    t.string "lastname"
-    t.string "state"
-    t.string "state_name"
-    t.string "party"
-    t.string "chamber"
-    t.string "bioguide_id"
-    t.string "crp_id"
-    t.string "phone_number"
-    t.string "congress_office"
-    t.string "website"
+    t.string  "title"
+    t.string  "firstname"
+    t.string  "lastname"
+    t.string  "state"
+    t.string  "state_name"
+    t.string  "party"
+    t.string  "chamber"
+    t.string  "bioguide_id"
+    t.string  "crp_id"
+    t.string  "phone_number"
+    t.string  "congress_office"
+    t.string  "website"
+    t.integer "sector_sum"
   end
 
 end
