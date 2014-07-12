@@ -1,21 +1,22 @@
 class Legislator < ActiveRecord::Base
   has_many :contributions, dependent: :destroy
 
-  def legis_sectors
+  def collect_sector_info
     legis_sectors = OpenSecrets::Candidate.new(ENV['OPENSECRETS_TOKEN']).sector({:cid => self.crp_id})["response"]["sectors"]["sector"]
 
-    sector_sum = 0
+    sum = 0
     legis_sectors.each do |x|
-      sector_name = x["sector_name"]
-      sector_total = x["total"]
-      pac_total = x["pacs"]
-      pac_ratio = ((sector_total/pac)*100).round(1)
+       name = x["sector_name"]
+       total = x["total"]
+       pac_total = x["pacs"]
+       indivs = x["indivs"]
+       pac_ratio = ((total/pac)*100).round(1)
 
-      self.contributions.create!(sector_name: sector_name, sector_total: sector_total, pac_total: pac_total, pac_ratio: pac_ratio)
+       self.contributions.create!(name: name, total: pac_total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs,)
 
-      sector_sum += sector_total
+       sum +=  total
     end
-    self.update(sector_sum: sector_sum)
+    self.update(sector_sum: sum)
   end
 
 
