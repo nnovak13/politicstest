@@ -1,2 +1,2 @@
-class ContributionsController < ActionController::Base
+class ContributionsController < ApplicationController
 end

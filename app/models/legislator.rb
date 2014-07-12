@@ -9,16 +9,27 @@ class Legislator < ActiveRecord::Base
     if kind == "sector"
       legis_sectors = candidate.sector({:cid => self.crp_id})["response"][kind.pluralize][kind]
     elsif kind == "industry"
-      legis_sectors = candidate.industry({:cid => self.crp_id})["response"][kind.pluralize][kind]
+      legis_sectors = candidate.industries({:cid => self.crp_id})["response"][kind.pluralize][kind]
     end
 
     sum = 0
     legis_sectors.each do |x|
+      # x = legis_sectors[0] ->
+      # {"industry_code"=>"H01",
+      # "industry_name"=>"Health Professionals",
+      # "indivs"=>"9100",
+      # "pacs"=>"82500",
+      # "total"=>"91600"}
+
        source = x[kind + "_name"]
-       total = x["total"]
-       pac_total = x["pacs"]
-       indivs = x["indivs"]
-       pac_ratio = ((total/pac)*100).round(1)
+       total = x["total"].to_i
+       pac_total = x["pacs"].to_i
+       indivs = x["indivs"].to_i
+       pac_ratio = ((total/pac_total)*100).round(1)
+
+       #FIXME If Pac total is 0, then set pac_ratio to 0
+       # if pac_total == 0
+       #  pac_ratio ==0
 
        self.contributions.create!(source: source, total: pac_total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs, kind: kind)
 
@@ -34,10 +45,13 @@ class Legislator < ActiveRecord::Base
 
 
 
-  # def legis_toppacs
-  #   legis_toppacs = OpenSecrets::Candidate.new.contributors(ENV['OPENSECRETS_TOKEN']).where(CID=self.crp_id)["response"]["contributor"]["orgname"]
+  # def top_pacs
+  #   top_pacs = OpenSecrets::Candidate.new.contributors(ENV['OPENSECRETS_TOKEN']).where(CID=self.crp_id)["response"]["contributor"]["contributors"]
 
-  #   legis_toppacs.each do |x|
+  #   top_pacs.each do |x|
+  # for top_pacs[0] = {"org_name"=>"Occidental Petroleum", "total"=>"35000"}["total"]
+
+
         # contributor_total = x["total"]  (||.last)
         #   pac_contributor = x["orgname"] (||.first)
       # end

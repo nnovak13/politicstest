@@ -12,4 +12,13 @@ Party: "<%= @legislator.party %>"    ---   State: <%= @legislator.state %><br><b
 Website: <%= link_to @legislator.website %><br>
 Address:  <%= @legislator.congress_office %><br><br><br>
 
+Contribution:  <%= @legislator.sector_sum%>
+
+Contribution:  <% @legislator.contributions.each do |c| %>
+    Name: <%= c.source%>
+    Total:
+    <div style="height:<%= c.total/100 %>px" class="contribution">
+      <%= c.total %>
+    </div>
+    <%end%>
 

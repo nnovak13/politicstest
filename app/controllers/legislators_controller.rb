@@ -1,4 +1,4 @@
-class LegislatorsController < ActionController::Base
+class LegislatorsController < ApplicationController
 
   def home
   end

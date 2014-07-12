@@ -11,11 +11,13 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require foundation
  *= require foundation_and_overrides
  *= require_self
+
  */
 
-
-body {
-  background-color: red;
+.contribution {
+  width: 20px;
+  background-color: blue;
 }
