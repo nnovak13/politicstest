@@ -9,6 +9,12 @@ class LegislatorsController < ActionController::Base
 
   def show
     @legislator = Legislator.find(params[:id])
+
+    if !@legislator.contributions.present?
+      @legislator.collect_contribution_info("sector")
+      @legislator.collect_contribution_info("industry")
+    end
+
   end
 
   def search
