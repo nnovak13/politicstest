@@ -1,22 +1,35 @@
 class Legislator < ActiveRecord::Base
   has_many :contributions, dependent: :destroy
 
-  def collect_sector_info
-    legis_sectors = OpenSecrets::Candidate.new(ENV['OPENSECRETS_TOKEN']).sector({:cid => self.crp_id})["response"]["sectors"]["sector"]
+  #collects and populates database with information regarding Legislator sector and contribution info, depending on what attribute is passed through this method
+  def collect_contribution_info(kind)
+
+    candidate = OpenSecrets::Candidate.new(ENV['OPENSECRETS_TOKEN'])
+
+    if kind == "sector"
+      legis_sectors = candidate.sector({:cid => self.crp_id})["response"][kind.pluralize][kind]
+    elsif kind == "industry"
+      legis_sectors = candidate.industry({:cid => self.crp_id})["response"][kind.pluralize][kind]
+    end
 
     sum = 0
     legis_sectors.each do |x|
-       name = x["sector_name"]
+       source = x[kind + "_name"]
        total = x["total"]
        pac_total = x["pacs"]
        indivs = x["indivs"]
        pac_ratio = ((total/pac)*100).round(1)
 
-       self.contributions.create!(name: name, total: pac_total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs,)
+       self.contributions.create!(source: source, total: pac_total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs, kind: kind)
 
        sum +=  total
     end
-    self.update(sector_sum: sum)
+
+    if kind == "sector"
+      self.update(sector_sum: sum)
+    elsif kind == "industry"
+      self.update(industry_sum: sum)
+    end
   end
 
 
