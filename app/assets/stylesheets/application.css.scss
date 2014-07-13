@@ -18,7 +18,32 @@
  */
 @import "foundation-icons";
 
+.sans {
 
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+h1 {
+font-family: 'Julius Sans One', sans-serif;
+font-weight: bold;
+}
+
+h2 {
+font-family: 'Julius Sans One', sans-serif;
+font-weight: bold;
+ color: black;
+  font-weight: bold;
+}
+
+h3 {
+font-family: 'Julius Sans One', sans-serif;
+font-weight: bold;
+}
+
+h4 {
+font-family: 'Julius Sans One', sans-serif;
+font-weight: bold;
+}
 
 .size-12 { font-size: 12px; }
 .size-14 { font-size: 14px; }
@@ -31,12 +56,50 @@
 .size-60 { font-size: 60px; }
 .size-72 { font-size: 72px; }
 
-.leg_pic {
 
+
+#banner {
+  background-image: image-url('http://main.abqjournal.netdna-cdn.com/wp-content/uploads/2013/09/CapBuilding.jpg');
+  background-repeat: no-repeat;
+  margin: -50px, 10px, 10px, 10px;
+  background-size: cover;
+  text-align: center;
+  margin: 20px;
+  padding: 200;
+    opacity:0.9;
+  filter:alpha(opacity=60);
+
+}
+
+.banner-text {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+
+  }
+
+.top-bar {
+
+   opacity:0.5;
+}
+
+.logo {
+
+padding: -100px;
+
+}
+
+
+
+.leg_pic {
 
 }
 
 .home_search {
+  /*background-image: url("http://1.bp.blogspot.com/_ahoJXwM2zgo/TH8NcfHEYOI/AAAAAAAACJA/n9jN2wWxG-4/s1600/bald_eagle_head_and_american_flag1.jpg");*/
+
+  margin: 50px;
+  padding: 20px;
 
 }
 
@@ -59,6 +122,7 @@
 
 
 }
+
 
 
 
