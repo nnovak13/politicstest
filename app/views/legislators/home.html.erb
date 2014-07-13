@@ -1,45 +1,110 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">My Site</a></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-        </ul>
-      </li>
-    </ul>
+<div class="row">
+<div class="large-3 columns">
+<h1><img src="http://placehold.it/400x100&text=Logo"></h1>
+</div>
+<div class="large-9 columns">
+<ul class="button-group right">
+<li><a href="#" class="button">Link 1</a></li>
+<li><a href="#" class="button">Link 2</a></li>
+<li><a href="#" class="button">Link 3</a></li>
+<li><a href="#" class="button">Link 4</a></li>
+</ul>
+</div>
+</div>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><a href="#">Left Nav Button</a></li>
-    </ul>
-  </section>
-</nav>
 
-<h1>OMGPoliticsBRO</h1>
+<div class="row">
+<div class="large-12 columns">
+<img src="http://placehold.it/1000x400&text=[img]">
+<hr>
+</div>
+</div>
+
+<h1>OMGPoliticsBRO</h1><div><i class="fi-dollar-bill size-72"></i></div>
+
+<div class="row">
+  <div class="small-6 large-5 columns"></div>
 
 
 
+  <div class = "home_search">
+    <h2> Legislators</h2><br>
 
-<h3> Legislators</h3>
+    <%= form_tag search_path do %>
+     <%= select_tag(:state, options_for_select(Legislator.us_states)) %>
 
-<%= form_tag search_path do %>
- <%= select_tag(:state, options_for_select(Legislator.us_states)) %>
+    <div><%=text_field_tag :name, nil, placeholder: 'Search by last name' %></div>
 
-<div><%=text_field_tag :name, nil, placeholder: 'Search by last name' %></div>
+    <div><%= submit_tag 'Submit' %></div>
+     <% end %>
+  </div>
 
-<div><%= submit_tag 'Submit' %></div>
- <% end %>
+</div>
+
+
+<div class="row">
+<div class="large-4 columns">
+<img src="http://www.brobible.com/wp-content/uploads/files/uploads/images/bro-life/'merica/soda-ban.jpg
+">
+</div>
+<div class="large-8 columns">
+<h4>This is a content section.</h4>
+<div class="row">
+<div class="large-6 columns">
+<p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+</div>
+<div class="large-6 columns">
+<p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="large-8 columns">
+<h4>This is a content section.</h4>
+<p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+<p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+</div>
+<div class="large-4 columns">
+<img src="http://production.cdn.annarbortees.com/public/spree/products/33681/large/thumb_white.png?1370828665">
+</div>
+</div>
+
+<footer class="row">
+<div class="large-12 columns">
+<hr/>
+<div class="row">
+<div class="large-6 columns">
+<p>&copy; Copyright no one at all. Go to town.</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+<li><a href="#">Link 3</a></li>
+<li><a href="#">Link 4</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/templates/foundation.js"></script>
+<script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+</body>
+
+
+
+
+
+
 
 
 

@@ -6,12 +6,14 @@ class Legislator < ActiveRecord::Base
 
     candidate = OpenSecrets::Candidate.new(ENV['OPENSECRETS_TOKEN'])
 
+    #This designates how to call the API depending on what KIND is selected
     if kind == "sector"
       legis_sectors = candidate.sector({:cid => self.crp_id})["response"][kind.pluralize][kind]
     elsif kind == "industry"
       legis_sectors = candidate.industries({:cid => self.crp_id})["response"][kind.pluralize][kind]
     end
 
+    #Each legislator is rendered a source, total, and pac info based on what KIND (sector, industry) is selected.
     sum = 0
     legis_sectors.each do |x|
       # x = legis_sectors[0] ->
@@ -27,13 +29,15 @@ class Legislator < ActiveRecord::Base
        indivs = x["indivs"].to_i
        pac_ratio = ((total/pac_total)*100).round(1)
 
-       #FIXME If Pac total is 0, then set pac_ratio to 0
-       # if pac_total == 0
-       #  pac_ratio ==0
+       #If Pac total is 0, then set pac_ratio to 0
+      if pac_total == 0
+        pac_ratio =0
+      end
 
-       self.contributions.create!(source: source, total: pac_total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs, kind: kind)
+       self.contributions.create!(source: source, total: total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs, kind: kind)
 
-       sum +=  total
+       #each time the loop is run the info is collected, each total contribution from either KIND (sector, industry) is totaled to create a composite summation of all sectors/industries
+       sum += total
     end
 
     if kind == "sector"
@@ -44,18 +48,19 @@ class Legislator < ActiveRecord::Base
   end
 
 
+###  !!!!!!FIX ME: NEED TO POPULATE DB WITH CONTRIBUTOR_TOTAL AND PAC_CONTRIBUTOR
+
 
   # def top_pacs
   #   top_pacs = OpenSecrets::Candidate.new.contributors(ENV['OPENSECRETS_TOKEN']).where(CID=self.crp_id)["response"]["contributor"]["contributors"]
 
   #   top_pacs.each do |x|
-  # for top_pacs[0] = {"org_name"=>"Occidental Petroleum", "total"=>"35000"}["total"]
+  # # for top_pacs[0] = {"org_name"=>"Occidental Petroleum", "total"=>"35000"}["total"]
 
-
-        # contributor_total = x["total"]  (||.last)
-        #   pac_contributor = x["orgname"] (||.first)
-      # end
-  # end
+  #       contributor_total = x["total"]
+  #       pac_contributor = x["orgname"]
+  #     end
+  #  end
 
 
   def self.us_states

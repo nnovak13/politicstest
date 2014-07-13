@@ -62,6 +62,8 @@ gem 'foundation-rails'
 
 # gem 'autoprefixer-rails'
 
+gem 'foundation-icons-sass-rails'
+
 
 group :development do
   gem 'pry-rails'

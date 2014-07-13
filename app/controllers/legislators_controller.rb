@@ -4,7 +4,6 @@ class LegislatorsController < ApplicationController
   end
 
   def index
-    #legis.legislator.find_by_state(state: )
   end
 
   def show
