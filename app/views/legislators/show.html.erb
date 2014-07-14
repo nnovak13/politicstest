@@ -27,6 +27,7 @@
   <div class = "loop-sector-container">
     <% @legislator.contributions.each do |c| %>
 
+      <!-- Composes CSS barchart from the "total" data, scaled to the amount of money calculated. Note that the decision to scale this further by a factor of "1000" reflects the diffuse spectrum of total monetary contribution, meaning that this factor serves as a mid-range value to scale back the css values of the bigger contributions and to allow the smaller values to retain apparent scaled visualization-->
       <div class ="contri">
         <div class = "contributions_chart">
           <div style="width:<%= c.total/1000 %>px" class="contribution">
@@ -87,7 +88,7 @@ The broad miscellaneous business sector encompasses a range of industries, from 
 <div class="large-6 columns">
 <ul class="inline-list right">
 <li><%= link_to('Home', root_path) %></li>
-<li>Conact the Bromaster</a></li>
+<li>Contact the Bromaster<%= mail_to "nnovak@fordham.edu" %></li>
 
 </ul>
 </div>
