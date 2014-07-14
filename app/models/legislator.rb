@@ -1,7 +1,7 @@
 class Legislator < ActiveRecord::Base
   has_many :contributions, dependent: :destroy
 
-  #collects and populates database with information regarding Legislator sector and contribution info, depending on what attribute is passed through this method
+  #collects and populates database with information regarding Legislator sector/industry and contribution info, depending on what attribute is passed through this method
   def collect_contribution_info(kind)
 
     candidate = OpenSecrets::Candidate.new(ENV['OPENSECRETS_TOKEN'])
