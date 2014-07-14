@@ -56,7 +56,16 @@ font-weight: bold;
 .size-60 { font-size: 60px; }
 .size-72 { font-size: 72px; }
 
+p {
 
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+}
+
+li {
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+}
 
 #banner {
   background-image: image-url('http://main.abqjournal.netdna-cdn.com/wp-content/uploads/2013/09/CapBuilding.jpg');
@@ -79,8 +88,11 @@ font-weight: bold;
   }
 
 .top-bar {
+  color: black;
+  background-color: white;
+  padding: 5px;
+  margin: 10px;
 
-   opacity:0.5;
 }
 
 .logo {
@@ -110,11 +122,13 @@ padding: -100px;
 
 .contribution {
   width: 50px;
-  background-color: blue;
-
+  background-color: rgba(215, 40, 40, 0.9);
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
   margin: align 0;
   border-color: black;
   border: 2px solid black;
+  padding: 15px;
 }
 
 

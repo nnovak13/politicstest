@@ -1,5 +1,47 @@
-<div class = "leg_pic">
-  <%= image_tag "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@legislator.bioguide_id}.jpg" %><br><br>
+
+<div class="row">
+<div class="large-3 columns">
+<h1><img src="http://placehold.it/400x100&text=Logo"/></h1>
+</div>
+<div class="large-9 columns">
+<ul class="inline-list right">
+<li><a href="#">List by Industries</a></li>
+<li>Legends:</a></li>
+<li><a href="#">Sector</a></li>
+<li><a href="#">Industry</a></li>
+</ul>
+</div>
+</div>
+
+<div class="row">
+
+
+<div class="large-9 push-3 columns">
+<h3><%= @legislator.title + ". " + @legislator.firstname + " " + @legislator.lastname + " "%><small>--<%= @legislator.party %>-- <%= @legislator.state %></small></h3>
+<p><%= link_to @legislator.website %></p>
+
+<p> <%= @legislator.congress_office %></p>
+
+<p>
+
+  Campaign Finance by SECTOR:
+  <div class = "loop-sector-container">
+    <% @legislator.contributions.each do |c| %>
+
+      <div class ="contri">
+        <div class = "contributions_chart">
+          <div style="width:<%= c.total/150 %>px" class="contribution">
+
+              <%= c.source%>
+              <%= number_to_currency(c.total) %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+
+</p>
 </div>
 
 
@@ -7,51 +49,47 @@
 
 
 
+<div class="large-3 pull-9 columns">
+
+<p><%= image_tag "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@legislator.bioguide_id}.jpg" %></p>
+
+<ul class="side-nav">
+<li>Sector Sum:  <%= number_to_currency(@legislator.sector_sum)%></a></li>
+<li>Industry Sum:  <%= number_to_currency(@legislator.industry_sum)%></a></li>
+<li><a href="#">Section 3</a></li>
+<li><a href="#">Section 4</a></li>
+<li><a href="#">Section 5</a></li>
+<li><a href="#">Section 6</a></li>
+</ul>
+</div>
+</div>
+
+<footer class="row">
+<div class="large-12 columns">
+<hr/>
+<div class="row">
+<div class="large-6 columns">
+<p>&copy; Copyright no one at all. Go to town.</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li><a href="#">Section 1</a></li>
+<li><a href="#">Section 2</a></li>
+<li><a href="#">Section 3</a></li>
+<li><a href="#">Section 4</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
 
 
-Contribution:
-<br><br>
-
-  <% @legislator.contributions.each do |c| %>
-
-    <div class = "contri">
-      <div class = "contributions_chart">
-        <div class="row">
-           <div class="small-6 large-5 columns">
-              <div style="width:<%= c.total/4000 %>px" class="contribution">
-
-                  <%= c.source%>
-                  Total: <%= number_to_currency(c.total) %>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <%end%>
 
 
-Name is <%= @legislator.title + ". " + @legislator.firstname + " " + @legislator.lastname%><br>
-
-Party: "<%= @legislator.party %>"    ---   State: <%= @legislator.state %><br><br>
-
-Website: <%= link_to @legislator.website %><br>
-Address:  <%= @legislator.congress_office %><br><br><br>
-
-Sector Sum:  <%= number_to_currency(@legislator.sector_sum)%><br>
-Industry Sum:  <%= number_to_currency(@legislator.industry_sum)%><br><br><br>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-Contribution:
-<br><br> <% @legislator.contributions.each do |c| %>
-     <%= c.source%>
-    Total: <%= number_to_currency(c.total) %><br><br>
 
 
-    <%end%>
+
+
 
 
 
