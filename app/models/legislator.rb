@@ -18,12 +18,14 @@ class Legislator < ActiveRecord::Base
     #Each legislator is rendered a source, total, and pac info based on what KIND (sector, industry) is selected.
     sum = 0
     legis_sectors.each do |x|
-      # x = legis_sectors[0] ->
-      # {"industry_code"=>"H01",
-      # "industry_name"=>"Health Professionals",
-      # "indivs"=>"9100",
-      # "pacs"=>"82500",
-      # "total"=>"91600"}
+
+      ### What an example hash looks like
+        # x = legis_sectors[0] ->
+        # {"industry_code"=>"H01",
+        # "industry_name"=>"Health Professionals",
+        # "indivs"=>"9100",
+        # "pacs"=>"82500",
+        # "total"=>"91600"}
 
        source = x[kind + "_name"]
        total = x["total"].to_i
@@ -44,6 +46,7 @@ class Legislator < ActiveRecord::Base
        sum += total
     end
 
+    #Depending on what KIND is selected, update the DB with the corresponding information
     if kind == "sector"
       self.update(sector_sum: sum)
     elsif kind == "industry"
