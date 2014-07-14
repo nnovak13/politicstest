@@ -1,14 +1,13 @@
 
 <div class="row">
 <div class="large-3 columns">
-<h1><img src="http://placehold.it/400x100&text=Logo"/></h1>
+<h1><div class= "logo"><i class="fi-dollar-bill size-24"></i> OMG <i class="fi-dollar-bill size-24"></i> </div></a></h1>
 </div>
 <div class="large-9 columns">
 <ul class="inline-list right">
-<li><a href="#">List by Industries</a></li>
-<li>Legends:</a></li>
-<li><a href="#">Sector</a></li>
-<li><a href="#">Industry</a></li>
+
+<li>Legend:</a></li>
+<li><a href="#A1">Data Info</a></li>
 </ul>
 </div>
 </div>
@@ -24,13 +23,13 @@
 
 <p>
 
-  Campaign Finance by SECTOR:
+  Campaign Finance by Sectors and Industries:
   <div class = "loop-sector-container">
     <% @legislator.contributions.each do |c| %>
 
       <div class ="contri">
         <div class = "contributions_chart">
-          <div style="width:<%= c.total/150 %>px" class="contribution">
+          <div style="width:<%= c.total/1000 %>px" class="contribution">
 
               <%= c.source%>
               <%= number_to_currency(c.total) %>
@@ -42,11 +41,24 @@
 
 
 </p>
+
+<h3><a name="A1">Data Info</a></h3><br>
+
+<p> The above data, pulled from the <a href="http://www.opensecrets.org/resources/create/api_doc.php">OpenSecrets API</a> provides up-to-date Campaign Finance information reagarding Industy and Sector contributions. For reference, however, please note the descriptions of the following classifications, taken from the OpenSecrets website. Please note that full, detailed descriptions of these data categories can be found <a href="http://www.opensecrets.org/industries/slist.php">here.</a></p>
+
+
+<h4><a href="http://www.opensecrets.org/industries/indus.php?ind=N">"Other"</a> </h4>
+<p>
+This sector is home to a variety of industries that don't fall under any business, labor or ideological groupings. The biggest dollars, by far, come from the large and diverse group of donors listing their occupation as "retired."
+
+Other categories include educators, government employees (though not their unions), nonprofit organizations, religious groups and members of the armed forces. This sector contributed more than $400 million to federal parties and candidates during the 2008 election cycle.
+</p>
+
+<h4><a href="http://www.opensecrets.org/industries/indus.php?ind=N">"Misc Business"</a> </h4>
+<p>
+The broad miscellaneous business sector encompasses a range of industries, from the manufacturing, textiles, steel and chemical industries to consumer retail goods, restaurants, beer wholesalers and funeral services. This sector also includes gambling, tourism, food and beverages.
+</p>
 </div>
-
-
-
-
 
 
 <div class="large-3 pull-9 columns">
@@ -56,10 +68,11 @@
 <ul class="side-nav">
 <li>Sector Sum:  <%= number_to_currency(@legislator.sector_sum)%></a></li>
 <li>Industry Sum:  <%= number_to_currency(@legislator.industry_sum)%></a></li>
-<li><a href="#">Section 3</a></li>
-<li><a href="#">Section 4</a></li>
-<li><a href="#">Section 5</a></li>
-<li><a href="#">Section 6</a></li>
+
+
+<li><a href="https://petitions.whitehouse.gov/petitions">Petition <%= @legislator.title + ". " + @legislator.firstname + " " + @legislator.lastname + " "%></a></li>
+
+
 </ul>
 </div>
 </div>
@@ -69,14 +82,13 @@
 <hr/>
 <div class="row">
 <div class="large-6 columns">
-<p>&copy; Copyright no one at all. Go to town.</p>
+<p>Hey! What are you doing down here?!! Get back up there!! Go on, git!!.</p>
 </div>
 <div class="large-6 columns">
 <ul class="inline-list right">
-<li><a href="#">Section 1</a></li>
-<li><a href="#">Section 2</a></li>
-<li><a href="#">Section 3</a></li>
-<li><a href="#">Section 4</a></li>
+<li><%= link_to('Home', root_path) %></li>
+<li>Conact the Bromaster</a></li>
+
 </ul>
 </div>
 </div>

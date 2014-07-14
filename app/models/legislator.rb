@@ -1,3 +1,5 @@
+require "pry"
+
 class Legislator < ActiveRecord::Base
   has_many :contributions, dependent: :destroy
 
@@ -27,12 +29,14 @@ class Legislator < ActiveRecord::Base
        total = x["total"].to_i
        pac_total = x["pacs"].to_i
        indivs = x["indivs"].to_i
-       pac_ratio = ((total/pac_total)*100).round(1)
 
-       #If Pac total is 0, then set pac_ratio to 0
+        #If Pac total is 0, then set pac_ratio to 0
       if pac_total == 0
-        pac_ratio =0
+        pac_ratio = 0
+      else
+        pac_ratio = ((total/pac_total)*100).round(1)
       end
+
 
        self.contributions.create!(source: source, total: total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs, kind: kind)
 
@@ -45,6 +49,7 @@ class Legislator < ActiveRecord::Base
     elsif kind == "industry"
       self.update(industry_sum: sum)
     end
+
   end
 
 

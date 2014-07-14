@@ -1,25 +1,43 @@
-<h1>Hey, um, I think you were looking for this!</h1>
 
+<div class = "table-title">
+  <div class="large-12 columns">
+    <h1>Hey, um, I think you were looking for this!</h1>
+  </div>
+</div>
 
-
+<div class = "table-legislator">
+  <div class="text-centerlarge-12 columns">
     <table>
+      <thead>
+        <tr>
+          <th width="75">Title</th>
+          <th width="350">Name</th>
+          <th width="150">Party</th>
+          <th width="150">State</th>
+          <th width="500">Office Address</th>
 
-      <% @legislators.each do |legislator|%>
-          <tr class="legislator">
-            <td class="title"><%= legislator.title %></td>
-            <td class="name"><%= link_to legislator.firstname + " " + legislator.lastname, legislator_path(legislator)%></td>
-            <td class="party"><%= legislator.party %></td>
-            <td class="state"><%= legislator.state %></td>
-            <td class="state_name"><%= legislator.state_name %></td>
-            <td class="bioguide_id"><%= legislator.bioguide_id %></td>
-            <td class="crp_id"><%= legislator.crp_id %></td>
-            <td class="website"><%= legislator.website %></td>
-            <td class="office"><%= legislator.congress_office %></td>
-          </tr>
-      <%end%>
+        </tr>
+      </thead>
+      <tbody>
+         <% @legislators.each do |legislator|%>
+              <tr class="legislator">
+                <td class="title"><%= legislator.title %></td>
+                <td class="name"><%= link_to legislator.firstname + " " + legislator.lastname, legislator_path(legislator)%></td>
+                <td class="party"><%= legislator.party %></td>
+                <td class="state"><%= legislator.state %></td>
+                <td class="state"><%= legislator.congress_office %></td>
+              </tr>
+          <%end%>
+        </tr>
+      </tbody>
     </table>
+  </div>
+</div>
 
-
-<%= link_to('LEMME GO BACK, BRO', root_path) %>
+<footer class="row">
+<div class="large-12 columns">
+<p><%= link_to('Hey, um, jk, LEMME GO BACK, BRO', root_path) %></p>
+</div>
+</footer>
 
 

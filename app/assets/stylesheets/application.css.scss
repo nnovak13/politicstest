@@ -67,6 +67,11 @@ li {
   font-weight: bold;
 }
 
+table {
+  float: center;
+  margin: align 0;
+}
+
 #banner {
   background-image: image-url('http://main.abqjournal.netdna-cdn.com/wp-content/uploads/2013/09/CapBuilding.jpg');
   background-repeat: no-repeat;
@@ -115,6 +120,19 @@ padding: -100px;
 
 }
 
+
+.table-title {
+  margin: align 0;
+  text-align: center;
+}
+
+.table-legislator{
+  margin: align 0;
+  text-align: center;
+
+}
+
+
 .contri {
   background-image: gray;
 
@@ -136,6 +154,7 @@ padding: -100px;
 
 
 }
+
 
 
 
