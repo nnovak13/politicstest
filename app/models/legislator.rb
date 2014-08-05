@@ -36,21 +36,16 @@ class Legislator < ActiveRecord::Base
       else
         pac_ratio = ((total/pac_total)*100).round(1)
       end
-
-
        self.contributions.create!(source: source, total: total, pac_total:  pac_total,  pac_ratio: pac_ratio, indivs: indivs, kind: kind)
-
        #each time the loop is run the info is collected, each total contribution from either KIND (sector, industry) is totaled to create a composite summation of all sectors/industries
        sum += total
     end
-
     #Depending on what KIND is selected, update the DB with the corresponding information
     if kind == "sector"
       self.update(sector_sum: sum)
     elsif kind == "industry"
       self.update(industry_sum: sum)
     end
-
   end
 
 

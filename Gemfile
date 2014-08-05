@@ -64,6 +64,8 @@ gem 'foundation-rails'
 
 gem 'foundation-icons-sass-rails'
 
+gem 'd3-rails'
+
 
 group :development do
   gem 'pry-rails'

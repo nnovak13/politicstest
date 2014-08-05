@@ -78,12 +78,14 @@ The broad miscellaneous business sector encompasses a range of industries, from 
 </div>
 </div>
 
+
+
 <footer class="row">
 <div class="large-12 columns">
 <hr/>
 <div class="row">
 <div class="large-6 columns">
-<p>Hey! What are you doing down here?!! Get back up there!! Go on, git!!.</p>
+<p>Hey! What are you doing down here?!! Get back up there!! Go on, giit!!.</p>
 </div>
 <div class="large-6 columns">
 <ul class="inline-list right">
@@ -100,69 +102,3 @@ The broad miscellaneous business sector encompasses a range of industries, from 
 
 
 
-
-
-
-
-
-
-<br><br><br><br><br><br><br><br>
-
-
-<html>
-  <head>
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Sector');
-        data.addColumn('number', 'Sector_sum');
-        data.addRows([
-          <% @legislator.contributions.each do |c| %>
-
-
-          [<%= c.source%>, <%= c.total %>],
-          <%end%>
-          ['Communic/Electronics', 1],
-          ['Construction', 1],
-          ['Defense', 1],
-          ['Energy/Nat Resource', 2],
-          ['Finance/Insur/RealEst', 1],
-          ['Health', 1],
-          ['Lawyers & Lobbyists', 1],
-          ['Transportation', 1],
-          ['Misc Business', 1],
-          ['Labor', 1],
-          ['Ideology/Single-Issue', 1]
-        ]);
-
-        // Set chart options
-        var options = {'title':'Campaign Contributions by Industry Sector',
-                       'width':1400,
-                       'height':1300};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
-</html>
