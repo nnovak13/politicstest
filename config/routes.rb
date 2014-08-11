@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root "legislators#home"
   resources :legislators
 
-resources :graphs, only: [:index]
+  resources :graphs, only: [:index]
 
-post '/search' => 'legislators#search'
+  post '/search' => 'legislators#search'
 # get '/home' => 'legistlators#home'
 end
 

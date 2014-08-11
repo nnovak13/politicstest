@@ -1,71 +1,71 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-    <h1><div class= "logo"><i class="fi-dollar-bill size-36"></i> OMG <i class="fi-dollar-bill size-36"></i> </div></a></h1>
+      <h1><div class= "logo"><i class="fi-dollar-bill size-36"></i> OMG <i class="fi-dollar-bill size-36"></i> </div></a></h1>
     </li>
 
 
-  <div class = "section">
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="has-dropdown">
-        <a href="#"><i class="fi-list-thumbnails size-24"></i></a>
-        <ul class="dropdown">
-          <li><a href="#A1">About</a></li>
-          <li><a href="#B1">Data Info</a></li>
-          <li><a href="#C1">Contact</a></li>
+    <div class = "section">
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#"><i class="fi-list-thumbnails size-24"></i></a>
+            <ul class="dropdown">
+              <li><a href="#A1">About</a></li>
+              <li><a href="#B1">Data Info</a></li>
+              <li><a href="#C1">Contact</a></li>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
 
-  </section>
-  </div>
-</nav>
+      </section>
+    </div>
+  </nav>
 
 
 
-   <h1 class="text-center banner-text">OMGPoliticsBro</h1>
-    <h2 class="text-center banner-text">Transparency. For da bros.</h2>
+  <h1 class="text-center banner-text">OMGPoliticsBro</h1>
+  <h2 class="text-center banner-text">Transparency. For da bros.</h2>
 
 
   <div id="banner">
-  <div class= "sans">
+    <div class= "sans">
 
       <div class="row">
         <div class="small-6 large-5 columns"></div>
 
-          <div class = "home_search">
-              <h2> Bro, like, Search for a Legislator</h2><br>
+        <div class = "home_search">
+          <h2> Bro, like, Search for a Legislator</h2><br>
 
-            <div class="row">
-              <div class="medium-4 small-centered columns">
-                <div class="row collapse">
-                 <div class="small-10 columns">
-                  <%= form_tag search_path do %>
-                   <%= select_tag(:state, options_for_select(Legislator.us_states)) %>
+          <div class="row">
+            <div class="medium-4 small-centered columns">
+              <div class="row collapse">
+               <div class="small-10 columns">
+                <%= form_tag search_path do %>
+                <%= select_tag(:state, options_for_select(Legislator.us_states)) %>
 
-                  <div><%=text_field_tag :name, nil, placeholder: 'Search by last name' %>
+                <div><%=text_field_tag :name, nil, placeholder: 'Search by last name' %>
 
-                      <div class= "button-wrap">
+                  <div class= "button-wrap">
 
-                          <%= button_tag(type: "submit", id: "Search", class: "search-button button postfix radius") do %>
-                            <i class="fi-magnifying-glass"></i>
-                          <% end %>
-                          </div>
-                       </div>
-                       </div>
-                    </div>
+                    <%= button_tag(type: "submit", id: "Search", class: "search-button button postfix radius") do %>
+                    <i class="fi-magnifying-glass"></i>
+                    <% end %>
                   </div>
-              <% end %>
+                </div>
               </div>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
-
   </div>
+</div>
+</div>
+
+</div>
 </div>
 
 
@@ -93,32 +93,32 @@
   <div class="row">
     <div class="large-8 columns">
       <h4><a name="B1">Ah, numbers, I guess.</a></h4>
-        <p>This app draws data from the Sunlight Congress and Influence Explorer API's, as well as from the OpenSecrets API. These APIs provide and track updated (through 2014) campaign finance data. </p>
-        <p>Coupled together, the data provide us with insight into the context of camaign finance--how much money, where the money comes from, etc. As such, this app functions solely for transparency and accessibility, not commentary or conjecture.</p>
-      </div>
+      <p>This app draws data from the Sunlight Congress and Influence Explorer API's, as well as from the OpenSecrets API. These APIs provide and track updated (through 2014) campaign finance data. </p>
+      <p>Coupled together, the data provide us with insight into the context of camaign finance--how much money, where the money comes from, etc. As such, this app functions solely for transparency and accessibility, not commentary or conjecture.</p>
+    </div>
     <div class="large-4 columns">
       <img src="http://production.cdn.annarbortees.com/public/spree/products/33681/large/thumb_white.png?1370828665">
     </div>
   </div>
 
-<footer class="row">
-  <div class="large-12 columns">
-    <div class="row">
-      <div class="large-6 columns">
-        <p><div><i class="fi-dollar-bill size-72"></i></div>To all the bros out there: DONT. STOP. BELEIVING. I GUESS.<p>
+  <footer class="row">
+    <div class="large-12 columns">
+      <div class="row">
+        <div class="large-6 columns">
+          <p><div><i class="fi-dollar-bill size-72"></i></div>To all the bros out there: DONT. STOP. BELEIVING. I GUESS.<p>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li>Contact the Bromaster<%= mail_to "nnovak@fordham.edu" %></li>
+              <li><a href="https://sunlightlabs.github.io/congress/">Sunlight</a></li>
+              <li><a href="http://www.opensecrets.org/resources/create/api_doc.php">Open Secrets</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-    <div class="large-6 columns">
-      <ul class="inline-list right">
-        <li>Contact the Bromaster<%= mail_to "nnovak@fordham.edu" %></li>
-        <li><a href="https://sunlightlabs.github.io/congress/">Sunlight</a></li>
-        <li><a href="http://www.opensecrets.org/resources/create/api_doc.php">Open Secrets</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-</footer>
+    </footer>
 
-</body>
+  </body>
 
 
 

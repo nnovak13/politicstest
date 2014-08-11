@@ -19,24 +19,24 @@
         </tr>
       </thead>
       <tbody>
-         <% @legislators.each do |legislator|%>
-              <tr class="legislator">
-                <td class="title"><%= legislator.title %></td>
-                <td class="name"><%= link_to legislator.firstname + " " + legislator.lastname, legislator_path(legislator)%></td>
-                <td class="party"><%= legislator.party %></td>
-                <td class="state"><%= legislator.state %></td>
-                <td class="state"><%= legislator.congress_office %></td>
-              </tr>
-          <%end%>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+       <% @legislators.each do |legislator|%>
+       <tr class="legislator">
+        <td class="title"><%= legislator.title %></td>
+        <td class="name"><%= link_to legislator.firstname + " " + legislator.lastname, legislator_path(legislator)%></td>
+        <td class="party"><%= legislator.party %></td>
+        <td class="state"><%= legislator.state %></td>
+        <td class="state"><%= legislator.congress_office %></td>
+      </tr>
+      <%end%>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 
 <footer class="row">
-<div class="large-12 columns">
-<p><%= link_to('Hey, um, jk, WE HAVE TO GO BACK, BRO', root_path) %></p>
-</div>
+  <div class="large-12 columns">
+    <p><%= link_to('Hey, um, jk, WE HAVE TO GO BACK, BRO', root_path) %></p>
+  </div>
 </footer>
