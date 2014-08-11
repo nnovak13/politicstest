@@ -8,7 +8,7 @@ class LegislatorsController < ApplicationController
 
   def show
     @legislator = Legislator.find(params[:id])
-
+      # put bill shit here
     if !@legislator.contributions.present?
       @legislator.collect_contribution_info("sector")
       @legislator.collect_contribution_info("industry")
