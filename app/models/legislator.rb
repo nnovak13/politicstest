@@ -1,21 +1,24 @@
 class Legislator < ActiveRecord::Base
   has_many :contributions, dependent: :destroy
 
+  candidate = OpenSecrets::Candidate.new(ENV['OPENSECRETS_TOKEN'])
+
+  legis_sectors = candidate.industries({:cid => self.crp_id})["response"][kind.pluralize][kind]
+
   #collects and populates database with information regarding Legislator sector/industry and contribution info, depending on what attribute is passed through this method
   def collect_contribution_info(kind)
 
-    candidate = OpenSecrets::Candidate.new(ENV['OPENSECRETS_TOKEN'])
-
     #This designates how to call the API depending on what KIND is selected
     if kind == "sector"
-      legis_sectors = candidate.sector({:cid => self.crp_id})["response"][kind.pluralize][kind]
+      legis_sectors
     elsif kind == "industry"
-      legis_sectors = candidate.industries({:cid => self.crp_id})["response"][kind.pluralize][kind]
+      legis_sectors
     end
+
 
     #Each legislator is rendered a source, total, and pac info based on what KIND (sector, industry) is selected.
     sum = 0
-    legis_sectors.each do |x|
+    legis_sectors.each do |e|
 
       ### What an example hash looks like
         # x = legis_sectors[0] ->
@@ -25,10 +28,10 @@ class Legislator < ActiveRecord::Base
         # "pacs"=>"82500",
         # "total"=>"91600"}
 
-       source = x[kind + "_name"]
-       total = x["total"].to_i
-       pac_total = x["pacs"].to_i
-       indivs = x["indivs"].to_i
+       source = e[kind + "_name"]
+       total = e["total"].to_i
+       pac_total = e["pacs"].to_i
+       indivs = e["indivs"].to_i
 
         #If Pac total is 0, then set pac_ratio to 0
       if pac_total == 0
